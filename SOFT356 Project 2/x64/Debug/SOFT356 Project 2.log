@@ -1,0 +1,9 @@
+﻿  SOFT356 Project 2.cpp
+E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(23,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(24,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(28,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(29,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(31,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(32,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(97,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  SOFT356 Project 2.vcxproj -> E:\Samuel-Collis-Project2\x64\Debug\SOFT356 Project 2.exe
