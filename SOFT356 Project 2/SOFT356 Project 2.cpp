@@ -7,6 +7,8 @@
 #include "ModelLoader.h"
 #include "ShaderLoader.h"
 #include "Player.h"
+#include "Terrain.h"
+#include "WorldGeneration.h"
 
 Player player;
 float deltaTime = 0.0f;
@@ -49,6 +51,10 @@ void processUserInput(GLFWwindow* window)
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
 		player.processControls(RIGHT, deltaTime);
 	}
+	if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) {
+		player.processControls(SPRINT, deltaTime);
+	}
+
 }
 
 
@@ -59,16 +65,17 @@ int main()
 	std::vector<Model> models;
 	std::vector<glm::vec3> modelLocations;
 
+	//Create the player
 	player = Player();
 
-	models.push_back(loadFromFile("media/creeper.obj"));
-	modelLocations.push_back(glm::vec3(0, 0, -2));
+	//Generate the world
+	generateWorld(models, modelLocations, player);
 
 	//Initialise glfw
 	glfwInit();
 
 	//Create our window
-	GLFWwindow* window = glfwCreateWindow(800, 600, "Object Loader", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(800, 600, "Project 2", NULL, NULL);
 
 	//Initialise glew
 	glfwMakeContextCurrent(window);
@@ -84,8 +91,6 @@ int main()
 
 	//Set up values for rotation and scale
 	static const float black[] = { 0.0f, 0.0f, 0.0f, 0.0f };
-	glm::vec3 rotation = glm::vec3(0.0f, 0.0f, 0.0f);
-	GLfloat scale = 1.0f;
 
 	std::cout << "You are able to close the window with the Q key" << std::endl;
 
@@ -106,12 +111,14 @@ int main()
 			models[i].draw(player.position, player.getView());
 		}
 
+		player.update();
+
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 
 		//Then clear ready for next pass
 		glClearBufferfv(GL_COLOR, 0, black);
-		glClearColor(0.0f, 0, 0, 0);
+		glClearColor(0.0f, 0.0f, 0.3f, 1);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 

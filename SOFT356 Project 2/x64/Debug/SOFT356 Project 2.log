@@ -1,9 +1,27 @@
 ﻿  SOFT356 Project 2.cpp
-E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(23,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(24,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(28,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(29,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(31,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(32,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(97,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.h(23,21): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.h(24,22): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.h(98,52): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.h(98,52): warning C4244:         with
+E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.h(98,52): warning C4244:         [
+E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.h(98,52): warning C4244:             T=float
+E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.h(98,52): warning C4244:         ]
+E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.h(134,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\Terrain.h(31,20): warning C4018: '<': signed/unsigned mismatch
+E:\Samuel-Collis-Project2\SOFT356 Project 2\Terrain.h(32,21): warning C4018: '<': signed/unsigned mismatch
+E:\Samuel-Collis-Project2\SOFT356 Project 2\WorldGeneration.h(31,19): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\WorldGeneration.h(32,19): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\WorldGeneration.h(49,26): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\WorldGeneration.h(53,19): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\WorldGeneration.h(54,19): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\WorldGeneration.h(67,26): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\WorldGeneration.h(71,19): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\WorldGeneration.h(72,19): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(25,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(26,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(30,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(31,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(33,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(34,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(102,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   SOFT356 Project 2.vcxproj -> E:\Samuel-Collis-Project2\x64\Debug\SOFT356 Project 2.exe

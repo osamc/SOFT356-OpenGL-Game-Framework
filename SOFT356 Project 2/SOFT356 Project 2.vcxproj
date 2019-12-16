@@ -76,7 +76,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>E:\Samuel-Collis-Project2\lib;$(IncludePath)</IncludePath>
+    <IncludePath>E:\Samuel-Collis-Project2\lib;C:\Users\scollis\Desktop\Samuel-Collis-Project2\lib;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -166,6 +166,8 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="ShaderLoader.h" />
     <ClInclude Include="stb_image.h" />
+    <ClInclude Include="Terrain.h" />
+    <ClInclude Include="WorldGeneration.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

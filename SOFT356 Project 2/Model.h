@@ -74,14 +74,16 @@ public:
 	
 	//Print the variables to the console
 	void debug(bool verbose);
+
+	//Bind the texture
+	void bindTexture();
 	
 private: 
 
 	//Apply the lighting
 	void applyLighting();
 
-	//Bind the texture
-	void bindTexture();
+	
 
 };
 

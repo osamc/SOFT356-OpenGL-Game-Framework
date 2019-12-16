@@ -113,7 +113,7 @@ void Model::draw(glm::vec3 playerLoc, glm::mat4 playerView) {
 	model = glm::rotate(model, glm::radians(rotation.z), glm::vec3(0.0f, 0.0f, 1.0f));
 
 	// creating the projection matrix
-	glm::mat4 projection = glm::perspective(45.0f, 4.0f / 3, 0.1f, 20.0f);
+	glm::mat4 projection = glm::perspective(45.0f, 4.0f / 3, 0.1f, 200.0f);
 
 	// Adding all matrices up to create combined matrix
 	glm::mat4 mv = playerView * model;
@@ -269,7 +269,7 @@ void Model::bindTexture() {
 	unsigned char* data = stbi_load(textureLocation.c_str(), &width, &height, &nrChannels, 0);
 
 	if (data) {
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
 		glGenerateMipmap(GL_TEXTURE_2D);
 		hasTexture = true;
 	}
