@@ -79,9 +79,8 @@ public:
 			stamina = maxStamina;
 		}
 
-		std::cout << "stamina: " << stamina << std::endl;
-
 	}
+
 
 
 	//Processing userInput

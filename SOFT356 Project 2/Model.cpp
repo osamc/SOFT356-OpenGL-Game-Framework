@@ -97,6 +97,7 @@ void Model::init() {
 
 void Model::draw(glm::vec3 playerLoc, glm::mat4 playerView) {
 
+	glUseProgram(usedProgram);
 	glUniform1i(glGetUniformLocation(usedProgram, "textured"), hasTexture ? 1 : 0);
 	
 	//Create a model matrix

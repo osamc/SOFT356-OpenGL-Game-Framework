@@ -9,6 +9,7 @@
 #include "Player.h"
 #include "Terrain.h"
 #include "WorldGeneration.h"
+#include "UIelement.h"
 
 Player player;
 float deltaTime = 0.0f;
@@ -60,7 +61,6 @@ void processUserInput(GLFWwindow* window)
 
 int main()
 {
-
 	//Stores for the models and locations
 	std::vector<Model> models;
 	std::vector<glm::vec3> modelLocations;
@@ -84,10 +84,13 @@ int main()
 	glfwSetCursorPosCallback(window, mouse_callback);
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
+
 	//Initialise every loaded model
 	for (int i = 0; i < models.size(); i++) {
 		models[i].init();
 	}
+
+	UIelement staminaBar;
 
 	//Set up values for rotation and scale
 	static const float black[] = { 0.0f, 0.0f, 0.0f, 0.0f };
@@ -113,6 +116,10 @@ int main()
 
 		player.update();
 
+		staminaBar.createRectangle(glm::vec2(0.4f, -0.8f), 0.2f, 0.6f * (player.stamina / player.maxStamina), glm::vec4(1.0f, 0.75f, 0.75f, 1.0f));
+		staminaBar.init();
+		staminaBar.draw();
+	
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 
