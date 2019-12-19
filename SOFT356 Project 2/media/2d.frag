@@ -13,6 +13,9 @@ void main()
 {
 	if(textured == 1) {
 	    fColour =  texture(ourTexture, uiText);
+	} else if (textured == 2) {
+	  fColour =  texture(ourTexture, uiText) * uiColour;
+	
 	} else {
 		fColour = uiColour; 
 	}

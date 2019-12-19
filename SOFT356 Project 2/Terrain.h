@@ -1,3 +1,4 @@
+#pragma once
 #include "Model.h"
 #include <GL/glew.h>
 
@@ -56,4 +57,3 @@ Model createTerrain(GLfloat size, GLuint vertexCount, std::string texture) {
 	return model;
 
 }
-#pragma once

@@ -9,7 +9,9 @@ enum Controls {
 	BACKWARD,
 	LEFT,
 	RIGHT,
-	SPRINT
+	SPRINT,
+	CROUCH,
+	JUMP
 };
 
 
@@ -28,15 +30,13 @@ public:
 
 	//the height of the player
 	GLfloat playerHeight = 2;
+	GLfloat viewBobTime = 0;
 
 	//Directions relative to the current direction of the player
 	glm::vec3 front;
 	glm::vec3 up;
 	glm::vec3 right;
 	glm::vec3 worldUp;
-
-	//Gametime
-	GLfloat gameTime = 0;
 
 	//Direction facing
 	float yaw;
@@ -61,112 +61,26 @@ public:
 
 	}
 
-	void setPosition(glm::vec3 pos) {
-		position = pos;
-	}
+	void setPosition(glm::vec3 pos);
 
 	//Method for returning the view of the player
-	glm::mat4 getView() {
-		return glm::lookAt(position, position + front, up);
-	}
+	glm::mat4 getView();
 
-	void update() {
-		//Every loop we want to regen some stamina
-		stamina += sInc;
-
-		//Don't go higher than the max value
-		if (stamina > maxStamina) {
-			stamina = maxStamina;
-		}
-
-	}
-
+	//Update loop for dealing with regenerating values
+	void update();
 
 
 	//Processing userInput
-	void processControls(Controls control, GLfloat deltaTime) {
-
-		//work out how  far to travel
-		float distanceTraveled = movementSpeed * speedModifier * deltaTime;
-
-		if (control != SPRINT) {
-			gameTime += deltaTime;
-			//Calculate the new height, we do this to allow
-			//for view bobbing within the world,
-			//this so it looks less smooth and more "immersive"
-			position.y = (0.1 * (glm::sin(gameTime / 0.1))) + playerHeight;
-		}
-
-		//We want to either calculate the new distance traveled or change the speed modifier
-		switch (control) {
-		case FORWARD:
-			position += front * distanceTraveled;
-			break;
-		case BACKWARD:
-			position -= front * distanceTraveled;
-			break;
-		case LEFT:
-			position -= right * distanceTraveled;
-			break;
-		case RIGHT:
-			position += right * distanceTraveled;
-			break;
-		case SPRINT:
-
-			stamina -= sDec;
-
-			//We don't want negative stamina
-			if (stamina < 0) {
-				stamina = 0;
-			}
-
-			//If we're above this stamina value then we want to "sprint"
-			if (stamina > 3) {
-				speedModifier = 5;
-			}
-
-			break;
-		}
-
-		//if we're below the threshold then we want to slow down
-		if (control != SPRINT) {
-			speedModifier = stamina > 3 ? 2.5 : 0.5;
-		}
-
-	}
+	void processControls(Controls control, GLfloat deltaTime);
 
 	//Process mouse movement
-	void processMouseMovement(float xoffset, float yoffset)
-	{
-		xoffset *= mouseSensitivity;
-		yoffset *= mouseSensitivity;
+	void processMouseMovement(GLfloat xoffset, GLfloat yoffset);
 
-		yaw += xoffset;
-		pitch += yoffset;
-
-		if (pitch > 89.0f) {
-			pitch = 89.0f;
-		}
-		else if (pitch < -89.0f) {
-			pitch = -89.0f;
-		}
-
-		updateViewVectors();
-	}
-
+	GLfloat getStaminaAsPercentage();
 
 private:
 
 	//Update local variables to deal with where we are facing
-	void updateViewVectors()
-	{
-		glm::vec3 newFront;
-		newFront.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
-		newFront.y = sin(glm::radians(pitch));
-		newFront.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
-		front = glm::normalize(newFront);
-		right = glm::normalize(glm::cross(front, worldUp));
-
-	}
+	void updateViewVectors();
 };
 

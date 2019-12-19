@@ -1,29 +1,39 @@
-
+#pragma once
+#include "Player.h"
+#include "Model.h"
+#include <vector>
 #include "GL/glew.h"
 #include "GL/freeglut.h"
 #include "GLFW/glfw3.h"
 #include <glm/glm.hpp> //includes GLM
-#include <string>
-#include "ModelLoader.h"
-#include "ShaderLoader.h"
-#include "Player.h"
-#include "Terrain.h"
+#include "UIRenderer.h"
 #include "WorldGeneration.h"
-#include "UIelement.h"
 
+//The opengl window
+GLFWwindow* window;
+
+//The Game elements
 Player player;
-float deltaTime = 0.0f;
-float lastFrame = 0.0f;
+UIRenderer uiRenderer;
+std::vector<Model> worldModels;
 
-float lastX = 800 / 2.0f;
-float lastY = 600 / 2.0f;
-bool firstMouse = true;
+//Variables for describing the game
+GLint wWidth, wHeight;
 
-int width = 800;
-int height = 600;
+//Variables for keeping track of how much time has past
+GLfloat deltaTime = 0.0f;
+GLfloat lastFrame = 0.0f;
 
-void mouse_callback(GLFWwindow* window, double xpos, double ypos)
-{
+//Variables for dealing with mouse inputs
+GLfloat lastX = 800 / 2.0f;
+GLfloat lastY = 600 / 2.0f;
+GLboolean firstMouse = true;
+
+//Method for dealing with mouse movements
+void mouseHook(GLFWwindow* window, GLdouble xpos, GLdouble ypos) {
+
+	//If it is the first loop round, then we set to the positions to be the same
+	//this prevents a massive initial jump/spike when the player first moves
 	if (firstMouse)
 	{
 		lastX = xpos;
@@ -31,18 +41,19 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
 		firstMouse = false;
 	}
 
-	float xoffset = xpos - lastX;
-	float yoffset = lastY - ypos;
+	//We then want to know how much to offset the player view
+	GLfloat xoffset = xpos - lastX;
+	GLfloat yoffset = lastY - ypos;
 
 	lastX = xpos;
 	lastY = ypos;
 
+	//We then deal with the movement
 	player.processMouseMovement(xoffset, yoffset);
 }
 
-void processUserInput(GLFWwindow* window)
-{
-
+//A method for dealing with keyboard inputs
+void processUserInput(GLFWwindow* window) {
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
 		player.processControls(FORWARD, deltaTime);
 	}
@@ -59,92 +70,101 @@ void processUserInput(GLFWwindow* window)
 		player.processControls(SPRINT, deltaTime);
 	}
 
+	if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS) {
+		player.processControls(CROUCH, deltaTime);
+	}
+
+	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
+		player.processControls(JUMP, deltaTime);
+	}
+
 }
 
+//Initialise OpenGL
+void initialiseOpenGL(GLint windowWidth, GLint windowHeight, std::string title) {
 
-int main()
-{
-
-	//Stores for the models and locations
-	std::vector<Model> models;
-	std::vector<glm::vec3> modelLocations;
-
-	//Create the player
-	player = Player();
-
-	//Generate the world
-	generateWorld(models, modelLocations, player);
+	wWidth = windowWidth;
+	wHeight = windowHeight;
 
 	//Initialise glfw
 	glfwInit();
 
 	//Create our window
-	GLFWwindow* window = glfwCreateWindow(width, height, "Project 2", NULL, NULL);
+	window = glfwCreateWindow(windowWidth, windowHeight, title.c_str(), NULL, NULL);
 
 	//Initialise glew
 	glfwMakeContextCurrent(window);
 	glewInit();
 
-	glfwSetCursorPosCallback(window, mouse_callback);
+	glfwSetCursorPosCallback(window, mouseHook);
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-
-	TextRenderer r;
-	r.init("media/font/test.fnt", "media/font/test.png");
-	r.renderText("stamina:", 2.0f, glm::vec2(-0.125f, -1.0f), width, height);
-
-	//Initialise every loaded model
-	for (int i = 0; i < models.size(); i++) {
-		models[i].init();
-	}
-
-	UIelement staminaBar;
-
-	//Set up values for rotation and scale
-	static const float black[] = { 0.0f, 0.0f, 0.0f, 0.0f };
-
-	std::cout << "You are able to close the window with the Q key" << std::endl;
 
 	glEnable(GL_DEPTH_TEST);
 
-	//main opengl draw loop
-	do {
-		
-		float currentFrame = glfwGetTime();
-		deltaTime = currentFrame - lastFrame;
-		lastFrame = currentFrame;
+}
 
-		processUserInput(window);
+//We generate the world and initialise it
+void initialiseWorld() {
+	//Generate the world
+	generateWorld(worldModels, player);
 
-		//Foreach model we want to rotate/translate/scale/draw it
-		for (int i = 0; i < models.size(); i++) {
-			models[i].translate(modelLocations[i]);
-			models[i].draw(player.position, player.getView());
-		}
-
-		player.update();
-
-		staminaBar.createRectangle(glm::vec2(0.4f, -0.8f), 0.2f, 0.6f * (player.stamina / player.maxStamina), glm::vec4(0.29f, 0.0f, 1.0f, 0.5f));
-		staminaBar.init();
-		staminaBar.draw();
-
-		r.draw();
-	
-		glfwSwapBuffers(window);
-		glfwPollEvents();
-
-		//Then clear ready for next pass
-		glClearBufferfv(GL_COLOR, 0, black);
-		glClearColor(0.0f, 0.0f, 0.3f, 1);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-
-	} // Check if the ESC key was pressed or the window was closed
-	while (glfwGetKey(window, GLFW_KEY_Q) != GLFW_PRESS &&
-		glfwWindowShouldClose(window) == 0);
-
-
-	glfwDestroyWindow(window);
-	glfwTerminate();
+	for (int i = 0; i < worldModels.size(); i++) {
+		worldModels[i].init();
+	}
 
 }
 
+//Initialise the UI
+void initialiseUI() {
+	uiRenderer.createGameElements(wWidth, wHeight);
+	uiRenderer.initialiseElements();
+}
+
+//Initialise everything
+void initialise(GLint windowWidth, GLint windowHeight, std::string title) {
+
+	initialiseOpenGL(windowWidth, windowHeight, title);
+	initialiseWorld();
+	initialiseUI();
+
+}
+
+//Render method to draw all objects needed to be drawn
+void render() {
+
+	GLfloat currentFrame = glfwGetTime();
+	deltaTime = currentFrame - lastFrame;
+	lastFrame = currentFrame;
+
+	processUserInput(window);
+
+	for (int i = 0; i < worldModels.size(); i++) {
+		worldModels[i].draw(player.position, player.getView());
+	}
+
+	uiRenderer.drawElements(player);
+	player.update();
+
+	glfwSwapBuffers(window);
+	glfwPollEvents();
+
+	float black[] = { 0.0f, 0.0f, 0.0f, 0.0f };
+
+	//Then clear ready for next pass
+	glClearBufferfv(GL_COLOR, 0, black);
+	glClearColor(0.1f, 0.1f, 0.3f, 1);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+}
+
+
+//simple loop to run the game
+int main() {
+	initialise(800, 600, "SOFT356 Game Demo");
+	do {
+		render();
+	} while (glfwGetKey(window, GLFW_KEY_Q) != GLFW_PRESS &&
+		glfwWindowShouldClose(window) == 0);
+
+	return 0;
+}

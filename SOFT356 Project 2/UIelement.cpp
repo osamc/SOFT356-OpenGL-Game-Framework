@@ -45,7 +45,6 @@ void UIelement::createRectangle(glm::vec2 position, GLfloat height, GLfloat widt
 		colours.push_back(colour);
 	}
 
-
 }
 
 void UIelement::createRectangle(glm::vec2 position, GLfloat height, GLfloat width, glm::vec4 colour, std::string textureLocation) {

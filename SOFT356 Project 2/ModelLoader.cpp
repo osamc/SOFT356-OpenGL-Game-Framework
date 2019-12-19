@@ -11,8 +11,6 @@ Model loadFromObj(std::string file) {
 	//Create the model to be returned
 	Model model;
 
-	//Log to the output that we're making the specified object
-	std::cout << "Creating from: " + file << std::endl;
 
 	//Instantiate a variable to hold each line of the string
 	std::string line;
@@ -27,8 +25,6 @@ Model loadFromObj(std::string file) {
 
 	GLuint indexOfCurrentMat;
 	Material tempMat; 
-
-	GLuint countF = 0, countT = 0;
 
 	//Create a string to hold the first two characters of each line just so we aren't making a method call each if check
 	std::string lineStart;

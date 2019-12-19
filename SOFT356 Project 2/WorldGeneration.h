@@ -5,13 +5,13 @@
 
 
 //Generate world
-void generateWorld(std::vector<Model> &models, std::vector<glm::vec3> &locations, Player &player) {
+void generateWorld(std::vector<Model> &models, Player &player) {
 
 	GLfloat size = 100;
 	//Create the floor plane with the texture of grass
 	Model floor = createTerrain(size, 2, "media/grass2.png");
+	floor.location = glm::vec3(0.0f, 0.0f, 0.0f);
 	models.push_back(floor);
-	locations.push_back(glm::vec3(0, 0, 0));
 
 	//Locate the centre of the plane
 	glm::vec3 furthestPoint = floor.vertices[floor.vertices.size() - 1];
@@ -35,8 +35,9 @@ void generateWorld(std::vector<Model> &models, std::vector<glm::vec3> &locations
 		randomX = (randomX / 100) * size;
 		randomZ = (randomZ / 100) * size;
 
+		tree.location = glm::vec3(randomX, 0, randomZ);
 		models.push_back(tree);
-		locations.push_back(glm::vec3(randomX, 0, randomZ));
+	
 	}
 
 	//Load a rock
@@ -55,8 +56,8 @@ void generateWorld(std::vector<Model> &models, std::vector<glm::vec3> &locations
 		randomX = (randomX / 100) * size;
 		randomZ = (randomZ / 100) * size;
 
+		rock.location = glm::vec3(randomX, 0, randomZ);
 		models.push_back(rock);
-		locations.push_back(glm::vec3(randomX, 0, randomZ));
 	}
 
 	//Do the same for another rock model
@@ -75,8 +76,9 @@ void generateWorld(std::vector<Model> &models, std::vector<glm::vec3> &locations
 		randomX = (randomX / 100) * size;
 		randomZ = (randomZ / 100) * size;
 
+		rock.location = glm::vec3(randomX, 0, randomZ);
 		models.push_back(rock);
-		locations.push_back(glm::vec3(randomX, 0, randomZ));
+		
 	}
 
 }
