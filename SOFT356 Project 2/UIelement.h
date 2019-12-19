@@ -3,6 +3,8 @@
 #include <glm/glm.hpp> 
 #include <GL/glew.h>
 #include <string>
+#include <map>
+#include "TextRendering.h"
 
 class UIelement {
 

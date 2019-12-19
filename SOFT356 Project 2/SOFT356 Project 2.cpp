@@ -19,6 +19,9 @@ float lastX = 800 / 2.0f;
 float lastY = 600 / 2.0f;
 bool firstMouse = true;
 
+int width = 800;
+int height = 600;
+
 void mouse_callback(GLFWwindow* window, double xpos, double ypos)
 {
 	if (firstMouse)
@@ -61,6 +64,7 @@ void processUserInput(GLFWwindow* window)
 
 int main()
 {
+
 	//Stores for the models and locations
 	std::vector<Model> models;
 	std::vector<glm::vec3> modelLocations;
@@ -75,7 +79,7 @@ int main()
 	glfwInit();
 
 	//Create our window
-	GLFWwindow* window = glfwCreateWindow(800, 600, "Project 2", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(width, height, "Project 2", NULL, NULL);
 
 	//Initialise glew
 	glfwMakeContextCurrent(window);
@@ -84,6 +88,9 @@ int main()
 	glfwSetCursorPosCallback(window, mouse_callback);
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
+	TextRenderer r;
+	r.init("media/font/test.fnt", "media/font/test.png");
+	r.renderText("stamina:", 2.0f, glm::vec2(-0.125f, -1.0f), width, height);
 
 	//Initialise every loaded model
 	for (int i = 0; i < models.size(); i++) {
@@ -116,9 +123,11 @@ int main()
 
 		player.update();
 
-		staminaBar.createRectangle(glm::vec2(0.4f, -0.8f), 0.2f, 0.6f * (player.stamina / player.maxStamina), glm::vec4(1.0f, 0.75f, 0.75f, 1.0f));
+		staminaBar.createRectangle(glm::vec2(0.4f, -0.8f), 0.2f, 0.6f * (player.stamina / player.maxStamina), glm::vec4(0.29f, 0.0f, 1.0f, 0.5f));
 		staminaBar.init();
 		staminaBar.draw();
+
+		r.draw();
 	
 		glfwSwapBuffers(window);
 		glfwPollEvents();

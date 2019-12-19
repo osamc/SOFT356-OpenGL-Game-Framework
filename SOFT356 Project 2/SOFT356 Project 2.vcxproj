@@ -72,19 +72,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>E:\Samuel-Collis-Project2\lib;$(IncludePath)</IncludePath>
+    <IncludePath>E:\Samuel-Collis-Project2\lib;$(IncludePath);E:\Samuel-Collis-Project2\lib\freetype;E:\Samuel-Collis-Project2\lib\freetype;E:\Samuel-Collis-Project2\lib\freetype</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>E:\Samuel-Collis-Project2\lib;C:\Users\scollis\Desktop\Samuel-Collis-Project2\lib;$(IncludePath)</IncludePath>
+    <IncludePath>E:\Samuel-Collis-Project2\lib;C:\Users\scollis\Desktop\Samuel-Collis-Project2\lib;$(IncludePath);E:\Samuel-Collis-Project2\lib\freetype;E:\Samuel-Collis-Project2\lib\freetype;E:\Samuel-Collis-Project2\lib\freetype</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>E:\Samuel-Collis-Project2\lib;$(IncludePath)</IncludePath>
+    <IncludePath>E:\Samuel-Collis-Project2\lib;$(IncludePath);E:\Samuel-Collis-Project2\lib\freetype;E:\Samuel-Collis-Project2\lib\freetype;E:\Samuel-Collis-Project2\lib\freetype</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>E:\Samuel-Collis-Project2\lib;$(IncludePath)</IncludePath>
+    <IncludePath>E:\Samuel-Collis-Project2\lib;$(IncludePath);E:\Samuel-Collis-Project2\lib\freetype;E:\Samuel-Collis-Project2\lib\freetype;E:\Samuel-Collis-Project2\lib\freetype</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -159,9 +159,12 @@
     <ClCompile Include="ModelLoader.cpp" />
     <ClCompile Include="ShaderLoader.cpp" />
     <ClCompile Include="SOFT356 Project 2.cpp" />
+    <ClCompile Include="TextRendering.cpp" />
     <ClCompile Include="UIelement.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="TextRendering.h" />
+    <ClInclude Include="TextureLoader.h" />
     <ClInclude Include="UIelement.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelLoader.h" />
@@ -178,8 +181,6 @@
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\nupengl.core.redist.0.1.0.1\build\native\nupengl.core.redist.targets" Condition="Exists('..\packages\nupengl.core.redist.0.1.0.1\build\native\nupengl.core.redist.targets')" />
     <Import Project="..\packages\nupengl.core.0.1.0.1\build\native\nupengl.core.targets" Condition="Exists('..\packages\nupengl.core.0.1.0.1\build\native\nupengl.core.targets')" />
-    <Import Project="..\packages\freetype.redist.2.8.0.1\build\native\freetype.redist.targets" Condition="Exists('..\packages\freetype.redist.2.8.0.1\build\native\freetype.redist.targets')" />
-    <Import Project="..\packages\freetype.2.8.0.1\build\native\freetype.targets" Condition="Exists('..\packages\freetype.2.8.0.1\build\native\freetype.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -187,7 +188,5 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\nupengl.core.redist.0.1.0.1\build\native\nupengl.core.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\nupengl.core.redist.0.1.0.1\build\native\nupengl.core.redist.targets'))" />
     <Error Condition="!Exists('..\packages\nupengl.core.0.1.0.1\build\native\nupengl.core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\nupengl.core.0.1.0.1\build\native\nupengl.core.targets'))" />
-    <Error Condition="!Exists('..\packages\freetype.redist.2.8.0.1\build\native\freetype.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\freetype.redist.2.8.0.1\build\native\freetype.redist.targets'))" />
-    <Error Condition="!Exists('..\packages\freetype.2.8.0.1\build\native\freetype.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\freetype.2.8.0.1\build\native\freetype.targets'))" />
   </Target>
 </Project>

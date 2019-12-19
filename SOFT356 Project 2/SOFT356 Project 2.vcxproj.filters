@@ -30,6 +30,9 @@
     <ClCompile Include="UIelement.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TextRendering.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Model.h">
@@ -54,6 +57,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UIelement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextRendering.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
