@@ -41,6 +41,10 @@ void Player::update(GLdouble currTime) {
 
 		position.y = playerHeight + jumpHeight;
 	}
+	else {
+		position.y = (0.1 * (glm::sin(viewBobTime / 0.1))) + ((playerHeight + jumpHeight));
+
+	}
 		 
 }
 

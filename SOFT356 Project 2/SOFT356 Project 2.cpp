@@ -18,15 +18,15 @@ UIRenderer uiRenderer;
 std::vector<Model> worldModels;
 
 //Variables for describing the game
-GLint wWidth, wHeight;
+GLint wWidth = 1280, wHeight = 960;
 
 //Variables for keeping track of how much time has past
 GLfloat deltaTime = 0.0f;
 GLfloat lastFrame = 0.0f;
 
 //Variables for dealing with mouse inputs
-GLfloat lastX = 800 / 2.0f;
-GLfloat lastY = 600 / 2.0f;
+GLfloat lastX = wWidth / 2.0f;
+GLfloat lastY = wHeight / 2.0f;
 GLboolean firstMouse = true;
 
 //Method for dealing with mouse movements
@@ -161,7 +161,7 @@ void render() {
 
 //simple loop to run the game
 int main() {
-	initialise(800, 600, "SOFT356 Game Demo");
+	initialise(wWidth, wHeight, "SOFT356 Game Demo");
 	do {
 		render();
 	} while (glfwGetKey(window, GLFW_KEY_Q) != GLFW_PRESS &&
