@@ -18,6 +18,7 @@ public:
 
 	GLuint textureId;
 	GLboolean hasTexture;
+	GLboolean transparent;
 
 	//Define vao data
 	enum VAO_IDs { ModelVAO, NumVAOs = 1 };
@@ -31,6 +32,8 @@ public:
 	//Methods for creating images or simple rectangles on screen
 	void createRectangle(glm::vec2 position, GLfloat height, GLfloat width, glm::vec4 colour);
 	void createRectangle(glm::vec2 position, GLfloat height, GLfloat width, glm::vec4 colour, std::string textureLocation);
+
+	void setTransparent(GLboolean isTransparent);
 
 	//Put the vertex data into the buffers
 	void init();

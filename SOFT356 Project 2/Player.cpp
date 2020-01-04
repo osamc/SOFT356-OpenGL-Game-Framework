@@ -1,4 +1,5 @@
 #include "Player.h"
+#include <GLFW\glfw3.h>
 
 
 void Player::setPosition(glm::vec3 pos) {
@@ -9,25 +10,51 @@ glm::mat4 Player::getView() {
 	return glm::lookAt(position, position + front, up);
 }
 
-void Player::update() {
+void Player::update(GLdouble currTime) {
 	//Every loop we want to regen some stamina
-	stamina += sInc;
+	stamina += staminaInc;
 
 	//Don't go higher than the max value
 	if (stamina > maxStamina) {
 		stamina = maxStamina;
 	}
+
+
+	if (isJumping) {
+
+		GLdouble timeElapsed = currTime - jumpStart;
+		
+
+		if (jumpStart + 0.4 > currTime) {
+			jumpHeight += (jumpSize * timeElapsed);
+		}
+		else if (jumpStart + 0.8 >= currTime) {
+			jumpHeight -= (jumpSize * (timeElapsed));
+		}
+		else {
+			isJumping = false;
+			jumpHeight = 0;
+		}
+
+		jumpHeight = jumpHeight < 0 ? 0 : jumpHeight;
+		
+
+		position.y = playerHeight + jumpHeight;
+	}
+		 
 }
 
 void Player::processControls(Controls control, GLfloat deltaTime) {
 	
+	GLfloat heightModifier = 0;
+
 	if (control == CROUCH) {
-		playerHeight = 1.25;
+		heightModifier = 0.66;
 		speedModifier = 0.6;
-		position.y = playerHeight;
+		position.y = playerHeight * heightModifier;
 	}
 	else {
-		playerHeight = 2;
+		heightModifier = 1;
 	}
 	
 	//work out how  far to travel
@@ -41,7 +68,7 @@ void Player::processControls(Controls control, GLfloat deltaTime) {
 		//Calculate the new height, we do this to allow
 		//for view bobbing within the world,
 		//this so it looks less smooth and more "immersive"
-		position.y = (0.1 * (glm::sin(viewBobTime / 0.1))) + playerHeight;
+		position.y = (0.1 * (glm::sin(viewBobTime / 0.1))) + ((playerHeight + jumpHeight) * heightModifier);
 	}
 
 	//We want to either calculate the new distance traveled or change the speed modifier
@@ -60,7 +87,7 @@ void Player::processControls(Controls control, GLfloat deltaTime) {
 		break;
 	case SPRINT:
 
-		stamina -= sDec;
+		stamina -= staminaDec;
 
 		//We don't want negative stamina
 		if (stamina < 0) {
@@ -73,8 +100,13 @@ void Player::processControls(Controls control, GLfloat deltaTime) {
 		}
 
 		break;
-	}
 
+	case JUMP: 
+		if (!isJumping) {
+			this->isJumping = true;
+			this->jumpStart = glfwGetTime();
+		}
+	}
 	
 
 	//if we're below the threshold then we want to slow down

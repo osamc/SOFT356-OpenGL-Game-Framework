@@ -14,12 +14,17 @@ void UIRenderer::createGameElements(GLint windowWidth, GLint windowHeight) {
 	//Add the text to the list of elements
 	this->textElements.push_back(staminaText);
 
+	//UIelement heart;
+	//heart.setTransparent(true);
+	//for (int i = 0; i < 5; i++) {
+	//	heart.createRectangle(glm::vec2(-1.0f + (i * 0.1f), -0.9f), 0.1f, 0.1f, glm::vec4(0.0f, 0.0f, 0.0f, 0.0f), "media/heart.png");
+	//	this->uiElements.push_back(heart);
+	//}
 
-	UIelement element;
-	element.createRectangle(glm::vec2(0.6f, 1.0f), 0.4f, 0.4f, glm::vec4(0.29f, 0.0f, 1.0f, 0.5f), "media/test.png");
+	//UIelement element;
+	//element.createRectangle(glm::vec2(0.6f, 1.0f), 0.4f, 0.4f, glm::vec4(0.29f, 0.0f, 1.0f, 0.5f), "media/test.png");
 
-	this->uiElements.push_back(element);
-
+	//this->uiElements.push_back(element);
 
 
 }
@@ -35,8 +40,10 @@ void UIRenderer::initialiseElements() {
 
 }
 
+
 void UIRenderer::drawElements(Player player)
 {
+
 	//loop over and draw all elements
 	for (int i = 0; i < this->uiElements.size(); i++) {
 		this->uiElements[i].draw();

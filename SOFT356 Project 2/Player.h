@@ -22,8 +22,8 @@ public:
 	//Stamina values
 	GLfloat stamina = 10;
 	GLfloat maxStamina = 10;
-	GLfloat sDec = 0.05;
-	GLfloat sInc = 0.005;
+	GLfloat staminaDec = 0.05;
+	GLfloat staminaInc = 0.005;
 
 	//Position of the player
 	glm::vec3 position;
@@ -32,6 +32,12 @@ public:
 	GLfloat playerHeight = 2;
 	GLfloat viewBobTime = 0;
 
+	GLboolean isJumping;
+	GLfloat jumpStart;
+	GLfloat jumpHeight = 0;
+	GLfloat jumpSize = 0.3;
+
+
 	//Directions relative to the current direction of the player
 	glm::vec3 front;
 	glm::vec3 up;
@@ -39,13 +45,15 @@ public:
 	glm::vec3 worldUp;
 
 	//Direction facing
-	float yaw;
-	float pitch;
+	GLfloat yaw;
+	GLfloat pitch;
 
 	//Character controls
-	float movementSpeed;
-	float speedModifier = 1;
-	float mouseSensitivity;
+	GLfloat movementSpeed;
+	GLfloat speedModifier = 1;
+	GLfloat mouseSensitivity;
+
+
 
 	//Initialise with sensible values
 	Player() {
@@ -67,7 +75,7 @@ public:
 	glm::mat4 getView();
 
 	//Update loop for dealing with regenerating values
-	void update();
+	void update(GLdouble currTime);
 
 
 	//Processing userInput

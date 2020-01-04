@@ -75,6 +75,7 @@ void processUserInput(GLFWwindow* window) {
 	}
 
 	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
+		std::cout << glfwGetTime() << std::endl;
 		player.processControls(JUMP, deltaTime);
 	}
 
@@ -143,7 +144,7 @@ void render() {
 	}
 
 	uiRenderer.drawElements(player);
-	player.update();
+	player.update(currentFrame);
 
 	glfwSwapBuffers(window);
 	glfwPollEvents();

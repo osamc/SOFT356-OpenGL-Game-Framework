@@ -1,11 +1,5 @@
-﻿  Player.cpp
-E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.h(25,21): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.h(26,22): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.cpp(26,22): warning C4305: '=': truncation from 'double' to 'float'
-E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.cpp(44,54): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.cpp(44,54): warning C4244:         with
-E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.cpp(44,54): warning C4244:         [
-E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.cpp(44,54): warning C4244:             T=float
-E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.cpp(44,54): warning C4244:         ]
-E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.cpp(82,27): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+﻿  UIRenderer.cpp
+E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.h(25,27): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.h(26,28): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.h(38,24): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
   SOFT356 Project 2.vcxproj -> E:\Samuel-Collis-Project2\x64\Debug\SOFT356 Project 2.exe

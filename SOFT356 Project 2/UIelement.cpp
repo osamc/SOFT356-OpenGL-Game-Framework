@@ -69,17 +69,30 @@ void UIelement::createRectangle(glm::vec2 position, GLfloat height, GLfloat widt
 
 }
 
+void UIelement::setTransparent(GLboolean isTransparent) {
+	this->transparent = isTransparent;
+}
+
 
 void UIelement::init() {
+
+	glDeleteVertexArrays(NumVAOs, &VAOs[0]);
+	glDeleteBuffers(NumBuffers, &Buffers[0]);
 	
-	std::vector<ShaderInfo> shaders;
+	//If we have already been initialised before, we won't be changing the shader
+	//so we can just use the previous program,
+	//else we'd leak memory
+	if (usedProgram == NULL) {
+		std::vector<ShaderInfo> shaders;
 
-	shaders.push_back({ GL_VERTEX_SHADER, "media/2d.vert" });
-	shaders.push_back({ GL_FRAGMENT_SHADER, "media/2d.frag" });
-	shaders.push_back({ GL_NONE, NULL });
+		shaders.push_back({ GL_VERTEX_SHADER, "media/2d.vert" });
+		shaders.push_back({ GL_FRAGMENT_SHADER, "media/2d.frag" });
+		shaders.push_back({ GL_NONE, NULL });
 
-	usedProgram = LoadShaders(shaders.data());
-	glUseProgram(usedProgram);
+		usedProgram = LoadShaders(shaders.data());
+		glUseProgram(usedProgram);
+
+	}
 
 	glGenVertexArrays(NumVAOs, VAOs);
 	glGenBuffers(NumBuffers, Buffers);
@@ -117,17 +130,26 @@ void UIelement::init() {
 		GL_FALSE, 0, BUFFER_OFFSET(0));
 
 	glEnableVertexAttribArray(Textures);
+
+	
 }
 
 
 void UIelement::draw() {
 	
+	if (transparent) {
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	}
+
 	glUseProgram(usedProgram);
 	glUniform1i(glGetUniformLocation(usedProgram, "textured"), hasTexture ? 1 : 0);
 
 	glBindVertexArray(VAOs[ModelVAO]);
 	glBindTexture(GL_TEXTURE_2D, textureId);
 	glDrawArrays(GL_TRIANGLES, 0, vertices.size());
+
+	glDisable(GL_BLEND);
 
 }
 
