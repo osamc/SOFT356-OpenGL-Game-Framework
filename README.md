@@ -5,7 +5,7 @@
 # First Person Game demo/engine
 
 
-This project uses the following as a base [project]: https://github.com/SOFT356/Samuel-Collis-SOFT356 . The base project was an open-gl model loader that allowed for the parsing and rendering of .obj and .dae file types.
+This project uses the following as a base project: https://github.com/SOFT356/Samuel-Collis-SOFT356 . The base project was an open-gl model loader that allowed for the parsing and rendering of .obj and .dae file types.
 
 The initial aims of this project was to create an engine that would allow for a basic explorer game with basic controls.  This branched into creating a custom image/ui element renderer. This allowed for the creation of a stamina bar to be created and rendered on screen which is tied to the players actions. To stem on this, a custom text renderer has also been wrote which is able to take the font outputs from Hiero @ https://github.com/libgdx/libgdx/wiki/Hiero  and use them to create render-able strings of text for within the game.
  
