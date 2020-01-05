@@ -35,6 +35,7 @@
 /packages/
 /x64/
 /lib/
+*/x64/
 
 #ignore these files
 !**/media
