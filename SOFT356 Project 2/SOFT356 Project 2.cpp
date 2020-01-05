@@ -75,7 +75,6 @@ void processUserInput(GLFWwindow* window) {
 	}
 
 	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
-		std::cout << glfwGetTime() << std::endl;
 		player.processControls(JUMP, deltaTime);
 	}
 
