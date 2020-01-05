@@ -1,5 +1,22 @@
-﻿  UIRenderer.cpp
+﻿  SOFT356 Project 2.cpp
 E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.h(25,27): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
 E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.h(26,28): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
 E:\Samuel-Collis-Project2\SOFT356 Project 2\Player.h(38,24): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+E:\Samuel-Collis-Project2\SOFT356 Project 2\Terrain.h(31,20): warning C4018: '<': signed/unsigned mismatch
+E:\Samuel-Collis-Project2\SOFT356 Project 2\Terrain.h(32,21): warning C4018: '<': signed/unsigned mismatch
+E:\Samuel-Collis-Project2\SOFT356 Project 2\WorldGeneration.h(31,19): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\WorldGeneration.h(32,19): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\WorldGeneration.h(50,26): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\WorldGeneration.h(54,19): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\WorldGeneration.h(55,19): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\WorldGeneration.h(68,26): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\WorldGeneration.h(72,19): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\WorldGeneration.h(73,19): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(39,11): warning C4244: '=': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(40,11): warning C4244: '=': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(45,18): warning C4244: 'initializing': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(46,18): warning C4244: 'initializing': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(48,10): warning C4244: '=': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(49,10): warning C4244: '=': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+E:\Samuel-Collis-Project2\SOFT356 Project 2\SOFT356 Project 2.cpp(136,23): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
   SOFT356 Project 2.vcxproj -> E:\Samuel-Collis-Project2\x64\Debug\SOFT356 Project 2.exe

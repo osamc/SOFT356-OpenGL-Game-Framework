@@ -9,7 +9,7 @@ void generateWorld(std::vector<Model> &models, Player &player) {
 
 	GLfloat size = 100;
 	//Create the floor plane with the texture of grass
-	Model floor = createTerrain(size, 2, "media/grass2.png");
+	Model floor = createTerrain(size, 2, "media/sand.png");
 	floor.location = glm::vec3(0.0f, 0.0f, 0.0f);
 	models.push_back(floor);
 

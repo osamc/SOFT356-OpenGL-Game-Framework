@@ -8,7 +8,7 @@ void UIRenderer::createGameElements(GLint windowWidth, GLint windowHeight) {
 	//We create the stamina text element
 	TextRenderer staminaText;
 	//We want to use this specific fnt file
-	staminaText.init("media/font/font.fnt", "media/font/font.png");
+	staminaText.init("media/font/impact.fnt", "media/font/impact.png");
 	staminaText.createText("stamina:", convertRGB(glm::vec4(255, 255, 255, 255)), 2.0f, glm::vec2(-0.125f, -1.0f), windowWidth, windowHeight);
 
 	//Add the text to the list of elements
@@ -21,11 +21,10 @@ void UIRenderer::createGameElements(GLint windowWidth, GLint windowHeight) {
 		this->uiElements.push_back(heart);
 	}
 
-	/*UIelement element;
+	UIelement element;
 	element.createRectangle(glm::vec2(0.6f, 1.0f), 0.4f, 0.4f, glm::vec4(0.29f, 0.0f, 1.0f, 0.5f), "media/test.png");
 
-	this->uiElements.push_back(element);*/
-
+	this->uiElements.push_back(element);
 
 }
 

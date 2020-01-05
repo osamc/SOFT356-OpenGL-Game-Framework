@@ -5,11 +5,11 @@
 # First Person Game demo/engine
 
 
-This project uses the following as a base [project]([https://github.com/SOFT356/Samuel-Collis-SOFT356](https://github.com/SOFT356/Samuel-Collis-SOFT356)). The base project was an open-gl model loader that allowed for the parsing and rendering of .obj and .dae file types.
+This project uses the following as a base [project]: https://github.com/SOFT356/Samuel-Collis-SOFT356 . The base project was an open-gl model loader that allowed for the parsing and rendering of .obj and .dae file types.
 
-The initial aims of this project was to create an engine that would allow for a basic explorer game with basic controls.  This branched into creating a custom image/ui element renderer. This allowed for the creation of a stamina bar to be created and rendered on screen which is tied to the players actions. To stem on this, a custom text renderer has also been wrote which is able to take the font outputs from [Hiero]([https://github.com/libgdx/libgdx/wiki/Hiero](https://github.com/libgdx/libgdx/wiki/Hiero)) and use them to create render-able strings of text for within the game.
+The initial aims of this project was to create an engine that would allow for a basic explorer game with basic controls.  This branched into creating a custom image/ui element renderer. This allowed for the creation of a stamina bar to be created and rendered on screen which is tied to the players actions. To stem on this, a custom text renderer has also been wrote which is able to take the font outputs from Hiero @ https://github.com/libgdx/libgdx/wiki/Hiero  and use them to create render-able strings of text for within the game.
  
- A custom plane generator was also created to create the floor for the game. The rest of the game world was created through object files that have a personal use license, these can be found for the rocks [here]([https://free3d.com/3d-model/free-low-poly-rock-model-pack-131559.html](https://free3d.com/3d-model/free-low-poly-rock-model-pack-131559.html)) and for the trees [here]([https://free3d.com/3d-model/christmas-tree-891764.html](https://free3d.com/3d-model/christmas-tree-891764.html)).
+ A custom plane generator was also created to create the floor for the game. The rest of the game world was created through object files that have a personal use license, these can be found for the rocks here: https://free3d.com/3d-model/free-low-poly-rock-model-pack-131559.html and for the trees here: https://free3d.com/3d-model/christmas-tree-891764.html](https://free3d.com/3d-model/christmas-tree-891764.html .
 
 Within the project there is a demo that utilises these features to create a basic explorer game.  When running the game you should see a window like so: 
 
@@ -110,3 +110,10 @@ custom.location = glm::vec3(x, y, z);
 models.push_back(custom);
 ```
 This should then place the object in game, you may need to play with scaling and positioning depending on the object file.
+
+
+A video for this project can be found below which outlines some areas of the code more specifically: 
+
+[![Youtube video](http://img.youtube.com/vi/_QhinMTyjbI/0.jpg)](https://www.youtube.com/watch?v=_QhinMTyjbI "Video Title")
+
+
